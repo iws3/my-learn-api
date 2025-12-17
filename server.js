@@ -59,6 +59,15 @@ app.get('/health', (req, res) => {
   res.json({ status: 'healthy' });
 });
 
+// New endpoint to demonstrate the CI/CD pipeline
+app.get('/api/version', (req, res) => {
+  res.json({
+    version: '2.0.0',
+    message: 'This endpoint was added via CI/CD!',
+    deployedAt: new Date().toISOString()
+  });
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
